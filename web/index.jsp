@@ -22,7 +22,8 @@
         <div class="form-group">
             <label for="exampleInputEmail1">用户名</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="请输入您的用户名">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your infomation with anyone else.</small>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your infomation with anyone
+                else.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
@@ -38,7 +39,8 @@
             <img id="code" src="/Inspur/code" onclick="changeCode()">
         </div>
         <button type="submit" class="btn btn-primary">登录</button>
-<%--        <input type="submit">--%>
+        <span color="red">${msg}</span>
+        <%--        <input type="submit">--%>
 
     </form>
 </div>

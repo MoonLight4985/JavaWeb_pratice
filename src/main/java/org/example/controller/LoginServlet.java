@@ -29,10 +29,14 @@ public class LoginServlet extends HttpServlet {
 //                resp.sendRedirect("/Inspur/Game.jsp");
                 req.getRequestDispatcher("/Game.jsp").forward(req, resp);
             } else {
-                
+                String msg = "用户名或密码错误！";
+                req.setAttribute("msg", msg);
+                req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
         } else {
-            resp.getWriter().write("用户名或密码错误！");
+            String msg = "用户名或密码错误！";
+            req.setAttribute("msg", msg);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 }

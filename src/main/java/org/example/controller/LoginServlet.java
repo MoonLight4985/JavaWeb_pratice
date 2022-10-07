@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 //                resp.sendRedirect("/Inspur/Game.jsp");
                     User user = new User(username, password);
                     session.setAttribute("loginUser", user);
-                    req.getRequestDispatcher("/Game.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/Menu.jsp").forward(req, resp);
                 } else {
                     String msg = "用户名或密码错误！";
                     req.setAttribute("msg", msg);

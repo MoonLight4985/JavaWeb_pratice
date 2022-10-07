@@ -39,7 +39,9 @@
             <img id="code" src="/Inspur/code" onclick="changeCode()">
         </div>
         <button type="submit" class="btn btn-primary">登录</button>
-        <span color="red">${msg}</span>
+        <br>
+        <br>
+        <h3>${msg}</h3>
         <%--        <input type="submit">--%>
 
     </form>

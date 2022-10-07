@@ -27,11 +27,14 @@ public class CodeServlet extends HttpServlet {
         graphics.fillRect(0, 0, width, height);
         graphics.setFont(new Font("微软雅黑", Font.BOLD, 25));
         Random random = new Random();
+        StringBuffer sb = new StringBuffer();
         for (int i = 1; i < 5; i++) {
             String code = random.nextInt(10) + "";
+            sb.append(code);//字符串拼接
             graphics.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
             graphics.drawString(code, 13 * i, random.nextInt(10) + 20);
         }
+        req.getSession().setAttribute("Vercode", sb.toString());
         for (int i = 0; i < 15; i++) {
             graphics.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
             graphics.drawLine(random.nextInt(width), random.nextInt(height), random.nextInt(width), random.nextInt(height));

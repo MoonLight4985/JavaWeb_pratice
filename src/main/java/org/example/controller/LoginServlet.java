@@ -24,25 +24,34 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String vercode = req.getParameter("Vercode");
+        String syscode = (String) req.getSession().getAttribute("Vercode");
         HttpSession session = req.getSession();
         System.out.println(username);
         System.out.println(password);
         resp.setContentType("text/html;charset=utf-8");
-        if (username.equals("admin")) {
-            if (password.equals("123456")) {
+        if (!vercode.equals(syscode)) {
+            String msg = "验证码错误！";
+            req.setAttribute("msg", msg);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        } else {
+            if (username.equals("admin")) {
+                if (password.equals("123456")) {
 //                resp.sendRedirect("/Inspur/Game.jsp");
-                User user = new User(username, password);
-                session.setAttribute("loginUser", user);
-                req.getRequestDispatcher("/Game.jsp").forward(req, resp);
+                    User user = new User(username, password);
+                    session.setAttribute("loginUser", user);
+                    req.getRequestDispatcher("/Game.jsp").forward(req, resp);
+                } else {
+                    String msg = "用户名或密码错误！";
+                    req.setAttribute("msg", msg);
+                    req.getRequestDispatcher("/index.jsp").forward(req, resp);
+                }
             } else {
                 String msg = "用户名或密码错误！";
                 req.setAttribute("msg", msg);
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
-        } else {
-            String msg = "用户名或密码错误！";
-            req.setAttribute("msg", msg);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
+
     }
 }

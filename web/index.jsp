@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <label for="exampleInputCode1">验证码</label>
-            <input type="password" class="form-control" id="exampleInputCode1" name="password"
+            <input type="password" class="form-control" id="exampleInputCode1" name="Vercode"
                    placeholder="请输入验证码">
             <br>
             <img id="code" src="/Inspur/code" onclick="changeCode()">

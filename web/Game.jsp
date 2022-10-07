@@ -1,3 +1,4 @@
+<%@ page import="org.example.entity.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: MoonLight
@@ -16,7 +17,13 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<%
+    User user = (User) request.getSession().getAttribute("loginUser");
+    String name = user.getUsername();
+%>
+
     <div style="width: 500px; height: 800px; margin: auto;">
+        <h3>hello~<%=name%></h3>
         <form method="get" action="/Inspur/guess">
             <div class="form-group">
                 <label for="exampleInput">猜一猜</label>

@@ -27,6 +27,7 @@
     <hr class="my-4">
     <p>This page is the menu page of the course practice items, please select the function you want to test^-^</p>
     <a class="btn btn-primary btn-lg" href="/Inspur/Game.jsp" role="button">1. 猜数字小游戏</a>
+    <a class="btn btn-primary btn-lg" href="/Inspur/logout" role="button">退出登录</a>
 </div>
 </body>
 </html>

@@ -15,7 +15,21 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        //接受浏览器地址栏发送的请求
+        HttpSession session = req.getSession();
+        //先判断session中是否保存有用户的信息,能取到就说明用户登陆过
+        User user = (User) session.getAttribute("loginUser");
+        if (user != null) {
+            //登陆过了
+            String name = user.getUsername();
+            String password = user.getPassword();
+            if (name.equals("admin") && password.equals("123456"))
+                req.getRequestDispatcher("/Menu.jsp").forward(req, resp);
+        } else {
+            //没有登陆过，先去登录
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        }
+//        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
     @Override

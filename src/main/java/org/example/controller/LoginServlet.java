@@ -4,11 +4,9 @@ import org.example.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Random;
 import java.util.Set;
 
@@ -40,6 +38,15 @@ public class LoginServlet extends HttpServlet {
 //                resp.sendRedirect("/Inspur/Game.jsp");
                     User user = new User(username, password);
                     session.setAttribute("loginUser", user);
+                    //用户登录成功之后，将用户名和密码保存到Cookie
+                    username = URLEncoder.encode(username, "UTF-8");
+                    password = URLEncoder.encode(password, "UTF-8");
+                    Cookie nameCookie = new Cookie("Username", username);
+                    nameCookie.setMaxAge(5 * 86400);
+                    Cookie passwordCookie = new Cookie("Password", password);
+                    passwordCookie.setMaxAge(5 * 86400);
+                    resp.addCookie(nameCookie);
+                    resp.addCookie(passwordCookie);
                     req.getRequestDispatcher("/Menu.jsp").forward(req, resp);
                 } else {
                     String msg = "用户名或密码错误！";
@@ -52,6 +59,5 @@ public class LoginServlet extends HttpServlet {
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
         }
-
     }
 }

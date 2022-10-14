@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.testController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

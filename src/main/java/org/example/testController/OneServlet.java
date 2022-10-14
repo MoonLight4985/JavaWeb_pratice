@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.testController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +17,7 @@ public class OneServlet extends HttpServlet {
         HttpSession session = req.getSession();
         //获取session的ID，不同浏览器访问同一个项目的同一个页面，session的ID是不同的。
         String id = session.getId();
+        //默认存活时间30min
         session.setMaxInactiveInterval(7 * 86400);
 
         PrintWriter writer = resp.getWriter();

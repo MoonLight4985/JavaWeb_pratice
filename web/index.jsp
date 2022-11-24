@@ -44,6 +44,7 @@
 <%--            <label class="form-check-label" for="saveme">记住我</label>--%>
 <%--        </div>--%>
         <br>
+        没有用户？<a href="/Inspur/reg.jsp">去注册</a>
         <br>
         <h3>${msg}</h3>
         <%--        <input type="submit">--%>

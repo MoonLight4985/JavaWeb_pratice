@@ -3,8 +3,11 @@ package org.example.entity;
 import java.util.Objects;
 
 public class User {
+    private String id;
     private String username;
     private String password;
+    private int age;
+    private String sex;
 
     public User() {
     }
@@ -12,6 +15,38 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String id, String username, String password, int age, String sex) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     @Override

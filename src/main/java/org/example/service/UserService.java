@@ -8,7 +8,6 @@ public class UserService {
         return new UserDao().addUser(user);
     }
     public User searchOne(String name, String password) {
-        System.out.println("000");
         return new UserDao().searchOne(name, password);
     }
 }

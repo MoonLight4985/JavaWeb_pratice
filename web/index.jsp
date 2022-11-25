@@ -17,12 +17,12 @@
 </head>
 <body>
 <div style="width: 500px; height: 800px; margin: auto;">
-    <form action="/Inspur/login" method="post">
+    <form action="${pageContext.request.contextPath}/login" method="post">
 
         <div class="form-group">
-            <label for="username">用户名</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="请输入您的用户名">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your infomation with anyone
+            <label for="name">用户名</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的用户名">
+            <small id="nameHelp" class="form-text text-muted">We'll never share your infomation with anyone
                 else.</small>
         </div>
         <div class="form-group">
@@ -55,7 +55,7 @@
 <script type="text/javascript">
     //获取cookie，提取用户名和密码
     var cookies = document.cookie;
-    //alert(cookies);
+    // alert(cookies);
     //Username=admin; Password=123456
     var cookielist = cookies.split("; ");
     for (var i = 0; i < cookielist.length; i++) {
@@ -63,7 +63,7 @@
         var cks = ck.split("=");//["username", "admin"]   ["password", "123456"]
         var cookieValue = decodeURI(cks[1]);
         if (cks[0] === "Username") {
-            document.getElementById("username").value=cookieValue;
+            document.getElementById("name").value=cookieValue;
         }
         if (cks[0] === "Password") {
             document.getElementById("password").value=cookieValue;

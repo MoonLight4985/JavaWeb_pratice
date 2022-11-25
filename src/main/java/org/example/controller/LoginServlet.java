@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import com.mysql.jdbc.log.Log;
 import org.example.entity.User;
 import org.example.service.UserService;
 
@@ -9,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.Random;
-import java.util.Set;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -24,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         User user = (User) session.getAttribute("loginUser");
         if (user != null) {
             //登陆过了
-            String name = user.getUsername();
+            String name = user.getName();
             String password = user.getPassword();
             User LoginUser = userService.searchOne(name, password);
             if (LoginUser != null) ;
@@ -38,12 +35,12 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+        String name = req.getParameter("name");
         String password = req.getParameter("password");
         String vercode = req.getParameter("Vercode");
         String syscode = (String) req.getSession().getAttribute("Vercode");
         HttpSession session = req.getSession();
-        System.out.println(username);
+        System.out.println(name);
         System.out.println(password);
         resp.setContentType("text/html;charset=utf-8");
         if (!vercode.equals(syscode)) {
@@ -51,15 +48,14 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("msg", msg);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
-            System.out.println("aaa");
-            User LoginUser = userService.searchOne(username, password);
+            User LoginUser = userService.searchOne(name, password);
             if (LoginUser != null) {
 //                resp.sendRedirect("/Inspur/Game.jsp");
                 session.setAttribute("loginUser", LoginUser);
                 //用户登录成功之后，将用户名和密码保存到Cookie
-                username = URLEncoder.encode(username, "UTF-8");
+                name = URLEncoder.encode(name, "UTF-8");
                 password = URLEncoder.encode(password, "UTF-8");
-                Cookie nameCookie = new Cookie("Username", username);
+                Cookie nameCookie = new Cookie("Username", name);
                 nameCookie.setMaxAge(5 * 86400);
                 Cookie passwordCookie = new Cookie("Password", password);
                 passwordCookie.setMaxAge(5 * 86400);

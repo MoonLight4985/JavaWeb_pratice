@@ -1,5 +1,7 @@
 package org.example.dao;
 
+//import org.apache.commons.dbutils.QueryRunner;
+//import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.example.Utils.JDBCUtils;
 import org.example.entity.User;
 
@@ -13,19 +15,15 @@ public class UserDao {
     private Connection connection = JDBCUtils.getCon();
     private PreparedStatement preparedStatement = null;
 
+//    private QueryRunner run = new QueryRunner(JDBCUtils.getDataSource());
+
     public int addUser(User user) {
         int count = 0;
         try {
             connection.setAutoCommit(false);
-            String sql = "insert into users(id, name, password, age, sex values(?, ?, ?, ?, ?)";
-            preparedStatement = connection.prepareStatement(sql);
+            String sql = "insert into users(id, name, password, age, sex) values(?, ?, ?, ?, ?)";
             String id = UUID.randomUUID().toString().replace("-", "");
-            preparedStatement.setString(1, id);
-            preparedStatement.setString(2, user.getUsername());
-            preparedStatement.setString(3, user.getPassword());
-            preparedStatement.setInt(4, user.getAge());
-            preparedStatement.setString(5, user.getSex());
-            count = preparedStatement.executeUpdate();
+//            count = run.update(connection, sql, id, user.getName(), user.getPassword(), user.getAge(), user.getSex());
             connection.commit();
         } catch (Exception e) {
             try {
@@ -45,12 +43,21 @@ public class UserDao {
         return count;
     }
 
+//    public User queryOne(String name, String password) {
+//        User user = null;
+//        try {
+//            String sql = "select id, name, password, age, sex from users where name=? and password=?";
+//            user = run.query(sql, new BeanHandler<>(User.class), name, password);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//        return user;
+//    }
+
     public User searchOne(String name, String password) {
         User user = null;
         try {
-            System.out.println("1010");
             String sql = "select id, name, password, age, sex from users where name = ? and password=?";
-            System.out.println("2020");
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, password);
@@ -58,7 +65,7 @@ public class UserDao {
             while (rs.next()) {
                 user = new User();
                 user.setId(rs.getString("id"));
-                user.setUsername(rs.getString("name"));
+                user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setAge(rs.getInt("age"));
                 user.setSex(rs.getString("sex"));

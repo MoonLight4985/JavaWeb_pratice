@@ -19,7 +19,7 @@
 
 <div style="width: 500px; height: 800px; margin: auto;">
     <h3>用户注册</h3>
-    <form>
+    <form action="${pageContext.request.contextPath}/reg">
         <div class="form-group">
             <label for="InputUsername">用户名</label>
             <input type="text" class="form-control" id="InputUsername">
@@ -33,7 +33,7 @@
             <label for="exampleInputAge">年龄</label>
             <input type="password" class="form-control" id="exampleInputAge">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">注册</button>
     </form>
 </div>
 

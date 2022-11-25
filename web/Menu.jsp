@@ -19,15 +19,16 @@
 <body>
 <%
     User user = (User) request.getSession().getAttribute("loginUser");
-    String name = user.getUsername();
+    String name = user.getName();
 %>
 <div class="jumbotron">
     <h1 class="display-4">Hello,<%=name%></h1>
     <p class="lead">本页面为课程练习项目菜单页面，请选择要测试的功能^-^</p>
     <hr class="my-4">
     <p>This page is the menu page of the course practice items, please select the function you want to test^-^</p>
-    <a class="btn btn-primary btn-lg" href="/Inspur/Game.jsp" role="button">1. 猜数字小游戏</a>
-    <a class="btn btn-primary btn-lg" href="/Inspur/logout" role="button">退出登录</a>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Game.jsp" role="button">1. 猜数字小游戏</a>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/student" role="button">2. 查询学生用户</a>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/logout" role="button">退出登录</a>
 </div>
 </body>
 </html>

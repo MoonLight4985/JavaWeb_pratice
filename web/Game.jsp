@@ -19,12 +19,12 @@
 <body>
 <%
     User user = (User) request.getSession().getAttribute("loginUser");
-    String name = user.getUsername();
+    String name = user.getName();
 %>
 
     <div style="width: 500px; height: 800px; margin: auto;">
         <h3>hello~<%=name%></h3>
-        <form method="get" action="/Inspur/guess">
+        <form method="get" action="${pageContext.request.contextPath}/guess">
             <div class="form-group">
                 <label for="exampleInput">猜一猜</label>
                 <input type="text" class="form-control" id="exampleInput" name="number">

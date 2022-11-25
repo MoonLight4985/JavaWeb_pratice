@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User {
     private String id;
-    private String username;
+    private String name;
     private String password;
     private int age;
     private String sex;
@@ -12,14 +12,14 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String name, String password) {
+        this.name = name;
         this.password = password;
     }
 
-    public User(String id, String username, String password, int age, String sex) {
+    public User(String id, String name, String password, int age, String sex) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.password = password;
         this.age = age;
         this.sex = sex;
@@ -54,20 +54,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(username, user.username) && Objects.equals(password, user.password);
+        return Objects.equals(name, user.name) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password);
+        return Objects.hash(name, password);
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -81,7 +81,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "username='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

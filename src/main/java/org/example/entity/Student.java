@@ -8,16 +8,33 @@ public class Student {
     private String sex;
     private Integer grade;
 
-    public Student() {
-    }
+    private String avatar;
 
-    public Student(Integer id, String sid, String name, Integer age, String sex, Integer grade) {
+    public Student(Integer id, String sid, String name, Integer age, String sex, Integer grade, String avatar) {
         this.id = id;
         this.sid = sid;
         this.name = name;
         this.age = age;
         this.sex = sex;
         this.grade = grade;
+        this.avatar = avatar;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", sid='" + sid + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", grade=" + grade +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
+
+    public Student() {
     }
 
     public Integer getId() {
@@ -26,6 +43,14 @@ public class Student {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getSid() {
@@ -68,15 +93,4 @@ public class Student {
         this.grade = grade;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", sid='" + sid + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                ", grade=" + grade +
-                '}';
-    }
 }

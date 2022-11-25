@@ -3,6 +3,7 @@ package org.example.dao;
 //import org.apache.commons.dbutils.QueryRunner;
 //import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.example.Utils.JDBCUtils;
+import org.example.entity.Student;
 import org.example.entity.User;
 
 import java.sql.Connection;
@@ -38,6 +39,13 @@ public class UserDao {
                 connection.close();
             } catch (SQLException e1) {
                 throw new RuntimeException(e1);
+            } finally {
+                try {
+                    preparedStatement.close();
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
         return count;
@@ -81,4 +89,6 @@ public class UserDao {
         }
         return user;
     }
+
+
 }

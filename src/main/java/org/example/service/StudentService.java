@@ -9,4 +9,8 @@ public class StudentService {
     public List<Student> queryList() {
         return new StudentDao().queryList();
     }
+
+    public boolean addStudent(Student student) {
+        return new StudentDao().addStudent(student);
+    }
 }

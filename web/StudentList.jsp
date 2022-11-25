@@ -19,8 +19,8 @@
 <body>
 <div style="width: 800px; height: 800px; margin: auto; margin-top: 50px">
     <h3>学生列表</h3>
+    <a href="${pageContext.request.contextPath}/addStudent.jsp"> 添加学生 </a>
     <c:forEach items="${students}" var="stu">
-
         <div class="media">
             <img src="https://oademo.oss-cn-qingdao.aliyuncs.com/avatar/2022/09/05/c85e009cf15f496289b2e5eabc3fc1a0.jpg"
                  class="mr-3" alt="..." width="64px" height="64px">

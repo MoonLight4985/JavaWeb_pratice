@@ -17,7 +17,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div style="width: 800px; height: 800px; margin: auto; margin-top: 50px">
+<div style="width: 450px; height: 800px; margin: auto; margin-top: 50px;">
     <h3>学生列表</h3>
     <a href="${pageContext.request.contextPath}/addStudent.jsp"> 添加学生 </a>
     <c:forEach items="${students}" var="stu">
@@ -58,9 +58,40 @@
                     </c:if>
                 </h5>
                 <p>
-                        ${stu.sid} - ${stu.grade}年级 - ${stu.age}<br>
+                        ${stu.sid} - ${stu.grade}年级 - ${stu.age}岁
+
                 </p>
+
             </div>
+            <div>
+                <a type="button" class="btn btn-light" href="${pageContext.request.contextPath}/delStu?id=${stu.id}">✕</a>
+            </div>
+                <%--            <div>--%>
+                <%--                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#staticBackdrop">--%>
+                <%--                    ✕${stu.name}--%>
+                <%--                </button>--%>
+                <%--                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"--%>
+                <%--                     aria-labelledby="staticBackdropLabel" aria-hidden="true">--%>
+                <%--                    <div class="modal-dialog">--%>
+                <%--                        <div class="modal-content">--%>
+                <%--                            <div class="modal-header">--%>
+                <%--                                <h5 class="modal-title" id="staticBackdropLabel">请确认您的操作</h5>--%>
+                <%--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                <%--                                    <span aria-hidden="true">&times;</span>--%>
+                <%--                                </button>--%>
+                <%--                            </div>--%>
+                <%--                            <div class="modal-body">--%>
+                <%--                                    ${stu}--%>
+                <%--                                    &lt;%&ndash;确定要删除学生${stu.name}吗？&ndash;%&gt;--%>
+                <%--                            </div>--%>
+                <%--                            <div class="modal-footer">--%>
+                <%--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>--%>
+                <%--                                <button type="button" class="btn btn-primary">确认</button>--%>
+                <%--                            </div>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
+                <%--            </div>--%>
         </div>
     </c:forEach>
 

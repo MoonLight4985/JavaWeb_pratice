@@ -21,7 +21,6 @@ public class UserDao {
     public int addUser(User user) {
         int count = 0;
         try {
-            connection.setAutoCommit(false);
             String sql = "insert into users(id, name, password, age, sex) values(?, ?, ?, ?, ?)";
             String id = UUID.randomUUID().toString().replace("-", "");
 //            count = run.update(connection, sql, id, user.getName(), user.getPassword(), user.getAge(), user.getSex());

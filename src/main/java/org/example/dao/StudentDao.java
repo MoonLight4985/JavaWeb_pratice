@@ -60,4 +60,29 @@ public class StudentDao {
         }
         return achieve;
     }
+    public boolean deleteById(int id) {
+        boolean achieve = false;
+        try {
+//            connection.setAutoCommit(false);
+            System.out.println(id);
+            String sql = "delete from student where id= ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            int count = preparedStatement.executeUpdate();
+            System.out.println(count);
+            if (count > 0)
+                achieve = true;
+            System.out.println(achieve);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return achieve;
+    }
 }

@@ -43,7 +43,7 @@ public class StudentServlet extends HttpServlet {
             } else {
                 req.getSession().setAttribute("addStudentMsg", "添加失败");
             }
-            resp.sendRedirect("/Inspur/student");
+            resp.sendRedirect(req.getContextPath() + "/student");
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {

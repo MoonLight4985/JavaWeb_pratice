@@ -13,4 +13,8 @@ public class StudentService {
     public boolean addStudent(Student student) {
         return new StudentDao().addStudent(student);
     }
+
+    public boolean deleteById(int id) {
+        return new StudentDao().deleteById(id);
+    }
 }

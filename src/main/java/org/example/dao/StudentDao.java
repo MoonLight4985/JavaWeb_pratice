@@ -2,6 +2,7 @@ package org.example.dao;
 
 import org.example.Utils.JDBCUtils;
 import org.example.entity.Student;
+import org.example.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,6 +74,62 @@ public class StudentDao {
             if (count > 0)
                 achieve = true;
             System.out.println(achieve);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return achieve;
+    }
+
+    public Student selectById(int id) {
+        Student student = new Student();
+        try {
+            String sql = "select * from student where id=?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                student.setId(rs.getInt("id"));
+                student.setSid(rs.getString("sid"));
+                student.setName(rs.getString("name"));
+                student.setAge(rs.getInt("age"));
+                student.setSex(rs.getString("sex"));
+                student.setGrade(rs.getInt("grade"));
+                student.setAvatar(rs.getString("avatar"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return student;
+    }
+
+    public boolean putStu(Student stu) {
+        boolean achieve = false;
+        try {
+            String sql = "update student set sid=?, name=?, age=?, grade=?, sex=?, avatar=? where id=?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,stu.getSid());
+            preparedStatement.setString(2, stu.getName());
+            preparedStatement.setInt(3, stu.getAge());
+            preparedStatement.setInt(4, stu.getGrade());
+            preparedStatement.setString(5, stu.getSex());
+            preparedStatement.setString(6, stu.getAvatar());
+            preparedStatement.setInt(7, stu.getId());
+            achieve = preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

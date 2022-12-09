@@ -66,6 +66,10 @@
             <div>
                 <a type="button" class="btn btn-light" href="${pageContext.request.contextPath}/delStu?id=${stu.id}">✕</a>
             </div>
+            &nbsp;
+            <div>
+                <a type="button" class="btn btn-light" href="${pageContext.request.contextPath}/putStu?id=${stu.id}">修改</a>
+            </div>
                 <%--            <div>--%>
                 <%--                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#staticBackdrop">--%>
                 <%--                    ✕${stu.name}--%>

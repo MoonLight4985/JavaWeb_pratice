@@ -17,4 +17,12 @@ public class StudentService {
     public boolean deleteById(int id) {
         return new StudentDao().deleteById(id);
     }
+
+    public Student selectById(int id) {
+        return new StudentDao().selectById(id);
+    }
+
+    public boolean putStu(Student stu) {
+        return new StudentDao().putStu(stu);
+    }
 }

@@ -24,7 +24,6 @@ public class StudentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Student> studentList = studentService.queryList();
         HttpSession session = req.getSession();
-        System.out.println(studentList);
         session.setAttribute("students", studentList);
         req.getRequestDispatcher("/StudentList.jsp").forward(req, resp);
     }

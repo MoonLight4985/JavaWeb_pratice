@@ -37,7 +37,6 @@ public class putStuServlet extends HttpServlet {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        System.out.println(student);
         boolean b = studentService.putStu(student);
         resp.sendRedirect(req.getContextPath() + "/student");
     }

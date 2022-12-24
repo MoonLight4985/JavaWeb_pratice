@@ -2,19 +2,17 @@ package org.example.dao;
 
 import org.example.Utils.JDBCUtils;
 import org.example.entity.Student;
-import org.example.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDao {
-
     private Connection connection = JDBCUtils.getCon();
     private PreparedStatement preparedStatement = null;
+
     public List<Student> queryList() {
         List<Student> students = new ArrayList<>();
         try {
@@ -51,16 +49,18 @@ public class StudentDao {
             achieve = preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
+//        finally {
+//            try {
+//                preparedStatement.close();
+//                connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         return achieve;
     }
+
     public boolean deleteById(int id) {
         boolean achieve = false;
         try {
@@ -76,14 +76,15 @@ public class StudentDao {
             System.out.println(achieve);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
+//        finally {
+//            try {
+//                preparedStatement.close();
+//                connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         return achieve;
     }
 
@@ -106,14 +107,15 @@ public class StudentDao {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
+//        finally {
+//            try {
+//                preparedStatement.close();
+//                connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         return student;
     }
 
@@ -122,7 +124,7 @@ public class StudentDao {
         try {
             String sql = "update student set sid=?, name=?, age=?, grade=?, sex=?, avatar=? where id=?";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,stu.getSid());
+            preparedStatement.setString(1, stu.getSid());
             preparedStatement.setString(2, stu.getName());
             preparedStatement.setInt(3, stu.getAge());
             preparedStatement.setInt(4, stu.getGrade());
@@ -132,14 +134,15 @@ public class StudentDao {
             achieve = preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
+//        finally {
+//            try {
+//                preparedStatement.close();
+//                connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         return achieve;
     }
 }

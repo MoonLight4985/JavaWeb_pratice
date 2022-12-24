@@ -19,19 +19,19 @@
 
 <div style="width: 500px; height: 800px; margin: auto;">
     <h3>用户注册</h3>
-    <form action="${pageContext.request.contextPath}/reg">
+    <form action="${pageContext.request.contextPath}/reg" method="post">
         <div class="form-group">
             <label for="InputUsername">用户名</label>
-            <input type="text" class="form-control" id="InputUsername">
+            <input type="text" class="form-control" id="InputUsername" name="name">
             <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="InputPassword">密码</label>
-            <input type="password" class="form-control" id="InputPassword">
+            <input type="password" class="form-control" id="InputPassword" name="password">
         </div>
         <div class="form-group">
             <label for="exampleInputAge">年龄</label>
-            <input type="password" class="form-control" id="exampleInputAge">
+            <input type="password" class="form-control" id="exampleInputAge" name="age">
         </div>
         <button type="submit" class="btn btn-primary">注册</button>
     </form>

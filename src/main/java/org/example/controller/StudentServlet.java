@@ -22,6 +22,7 @@ public class StudentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println('1');
         List<Student> studentList = studentService.queryList();
         HttpSession session = req.getSession();
         session.setAttribute("students", studentList);

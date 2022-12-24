@@ -25,13 +25,13 @@ public class RegServlet extends HttpServlet {
             Map<String, String[]> parameters = req.getParameterMap();
             User user = new User();
             BeanUtils.populate(user, parameters);
-            int count = userService.addUser(user);
+            boolean achieve = userService.addUser(user);
             resp.setContentType("text/html;charsert=UTF-8");
             PrintWriter writer = resp.getWriter();
-            if (count > 0) {
-                writer.print("<div>用户注册成功，<a href='/Inspur/login.jsp'>去登录</a></div>");
+            if (achieve) {
+                writer.print("<div>Accepted.<a href='/Inspur/index.jsp'>LOGIN!</a></div>");
             } else {
-                writer.print("<div>用户注册失败，<a href='/Inspur/reg.jsp'>重新注册</a></div>");
+                writer.print("<div>Wrong.<a href='/Inspur/reg.jsp'>Sign Up Again!</a></div>");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

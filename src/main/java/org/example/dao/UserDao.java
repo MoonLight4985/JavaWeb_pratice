@@ -1,53 +1,37 @@
 package org.example.dao;
 
-//import org.apache.commons.dbutils.QueryRunner;
-//import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.example.Utils.JDBCUtils;
-import org.example.entity.Student;
 import org.example.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.UUID;
+//import java.util.UUID;
 
 public class UserDao {
     private Connection connection = JDBCUtils.getCon();
     private PreparedStatement preparedStatement = null;
 
-//    private QueryRunner run = new QueryRunner(JDBCUtils.getDataSource());
-
-    public int addUser(User user) {
-        int count = 0;
+    public boolean addUser(User user) {
+        boolean execute = false;
         try {
-            String sql = "insert into users(id, name, password, age, sex) values(?, ?, ?, ?, ?)";
+            String sql = "insert into users(id, name, password, age) values(?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
             String id = UUID.randomUUID().toString().replace("-", "");
-//            count = run.update(connection, sql, id, user.getName(), user.getPassword(), user.getAge(), user.getSex());
-            connection.commit();
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, user.getName());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setInt(4, user.getAge());
+            int row = preparedStatement.executeUpdate();
+            if (row > 0)
+                execute = true;
+            System.out.println(row);
         } catch (Exception e) {
-            try {
-                connection.rollback();
-                connection.setAutoCommit(true);
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e1) {
-                throw new RuntimeException(e1);
-            } finally {
-                try {
-                    preparedStatement.close();
-                    connection.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+            e.printStackTrace();
         }
-        return count;
+
+        return execute;
     }
 
 //    public User queryOne(String name, String password) {
@@ -78,14 +62,15 @@ public class UserDao {
                 user.setSex(rs.getString("sex"));
             }
         } catch (Exception e) {
-        } finally {
-            try {
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
+//        finally {
+//            try {
+//                preparedStatement.close();
+//                connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         return user;
     }
 

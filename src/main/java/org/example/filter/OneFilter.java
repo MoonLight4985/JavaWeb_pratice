@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter("/*  ")
+//@WebFilter("/*  ")
 public class OneFilter implements Filter {
 
     @Override

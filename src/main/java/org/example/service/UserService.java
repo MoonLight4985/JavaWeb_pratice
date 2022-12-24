@@ -4,7 +4,7 @@ import org.example.dao.UserDao;
 import org.example.entity.User;
 
 public class UserService {
-    public int addUser(User user) {
+    public boolean addUser(User user) {
         return new UserDao().addUser(user);
     }
     public User searchOne(String name, String password) {

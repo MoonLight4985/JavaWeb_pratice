@@ -3,20 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <filter>
-        <filter-name>OneFilter</filter-name>
-        <filter-class>org.example.filter.OneFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>OneFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>TwoFilter</filter-name>
-        <filter-class>org.example.filter.TwoFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>TwoFilter</filter-name>
-        <url-pattern>/student</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>OneFilter</filter-name>-->
+<!--        <filter-class>org.example.filter.OneFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>OneFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+<!--    <filter>-->
+<!--        <filter-name>TwoFilter</filter-name>-->
+<!--        <filter-class>org.example.filter.TwoFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>TwoFilter</filter-name>-->
+<!--        <url-pattern>/student</url-pattern>-->
+<!--    </filter-mapping>-->
 </web-app>

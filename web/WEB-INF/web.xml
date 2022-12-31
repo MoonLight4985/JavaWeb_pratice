@@ -19,4 +19,16 @@
 <!--        <filter-name>TwoFilter</filter-name>-->
 <!--        <url-pattern>/student</url-pattern>-->
 <!--    </filter-mapping>-->
+    <filter>
+        <filter-name>EncoderFilter</filter-name>
+        <filter-class>org.example.filter.EncoderFilter</filter-class>
+        <init-param>
+            <param-name>encode</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncoderFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

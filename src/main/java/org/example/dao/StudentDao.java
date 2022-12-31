@@ -27,6 +27,7 @@ public class StudentDao {
                 stu.setAge(rs.getInt("age"));
                 stu.setSex(rs.getString("sex"));
                 stu.setGrade(rs.getInt("grade"));
+                stu.setAvatar(rs.getString("avatar"));
                 students.add(stu);
             }
         } catch (Exception e) {

@@ -22,7 +22,7 @@
     <a href="${pageContext.request.contextPath}/addStudent.jsp"> 添加学生 </a>
     <c:forEach items="${students}" var="stu">
         <div class="media">
-            <img src="https://oademo.oss-cn-qingdao.aliyuncs.com/avatar/2022/09/05/c85e009cf15f496289b2e5eabc3fc1a0.jpg"
+            <img src="${stu.avatar}"
                  class="mr-3" alt="..." width="64px" height="64px">
             <div class="media-body">
                 <h5 class="mt-0">${stu.name}

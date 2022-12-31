@@ -27,6 +27,7 @@
             <div class="media-body">
                 <h5 class="mt-0">${stu.name}
                     <c:if test="${stu.sex=='女'}">
+                        <%--女性图标--%>
                         <svg t="1669368362175" class="icon" viewBox="0 0 1024 1024" version="1.1"
                              xmlns="http://www.w3.org/2000/svg" p-id="2790" width="24" height="24">
                             <path d="M510.887666 512m-446.708971 0a446.708971 446.708971 0 1 0 893.417942 0 446.708971 446.708971 0 1 0-893.417942 0Z"
@@ -40,6 +41,7 @@
                         </svg>
                     </c:if>
                     <c:if test="${stu.sex=='男'}">
+                        <%--男性图标--%>
                         <svg t="1669368469178" class="icon" viewBox="0 0 1024 1024" version="1.1"
                              xmlns="http://www.w3.org/2000/svg" p-id="3189" width="24" height="24">
                             <path d="M511.843434 512m-446.708971 0a446.708971 446.708971 0 1 0 893.417942 0 446.708971 446.708971 0 1 0-893.417942 0Z"
@@ -68,7 +70,7 @@
             </div>
             &nbsp;
             <div>
-                <a type="button" class="btn btn-light" href="${pageContext.request.contextPath}/putStu?id=${stu.id}">修改</a>
+                <a type="button" class="btn btn-light" href="${pageContext.request.contextPath}/stud?method=SelectById&id=${stu.id}">修改</a>
             </div>
                 <%--            <div>--%>
                 <%--                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#staticBackdrop">--%>

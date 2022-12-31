@@ -20,7 +20,7 @@
 
 <div style="width: 500px; height: 800px; margin: auto;">
     <h3>添加学生用户</h3>
-    <form action="${pageContext.request.contextPath}/putStu?id=${putStudent.id}" method="post">
+    <form action="${pageContext.request.contextPath}/stud?method=update&id=${putStudent.id}" method="post">
         <div class="form-group">
             <label for="InputUsername">学生姓名</label>
             <input type="text" class="form-control" id="InputUsername" name="name" value="${putStudent.name}">
@@ -36,29 +36,29 @@
             <input type="text" class="form-control" id="InputAge" name="age" value="${putStudent.age}">
         </div>
         <div class="form-group">
-            <label for="exampleFormGrade">年级 - ${putStudent.grade}</label>
+            <label for="exampleFormGrade">年级</label>
             <select multiple class="form-control" id="exampleFormGrade" name="grade">
-                <option>2015</option>
-                <option>2016</option>
-                <option>2017</option>
-                <option>2018</option>
-                <option>2019</option>
-                <option>2020</option>
-                <option>2021</option>
-                <option>2022</option>
-                <option>2023</option>
-                <option>2024</option>
-                <option>2025</option>
+                <option value="2015" <c:if test="${2015 eq putStudent.grade}">selected</c:if> >2015</option>
+                <option value="2016" <c:if test="${2016 eq putStudent.grade}">selected</c:if> >2016</option>
+                <option value="2017" <c:if test="${2017 eq putStudent.grade}">selected</c:if> >2017</option>
+                <option value="2018" <c:if test="${2018 eq putStudent.grade}">selected</c:if> >2018</option>
+                <option value="2019" <c:if test="${2019 eq putStudent.grade}">selected</c:if> >2019</option>
+                <option value="2020" <c:if test="${2020 eq putStudent.grade}">selected</c:if> >2020</option>
+                <option value="2021" <c:if test="${2021 eq putStudent.grade}">selected</c:if> >2021</option>
+                <option value="2022" <c:if test="${2022 eq putStudent.grade}">selected</c:if> >2022</option>
+                <option value="2023" <c:if test="${2023 eq putStudent.grade}">selected</c:if> >2023</option>
+                <option value="2024" <c:if test="${2024 eq putStudent.grade}">selected</c:if> >2024</option>
+                <option value="2025" <c:if test="${2025 eq putStudent.grade}">selected</c:if> >2025</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="exampleFormSex">性别 - ${putStudent.sex}</label>
+            <label for="exampleFormSex">性别</label>
             <select multiple class="form-control" id="exampleFormSex" name="sex">
-                <option>男</option>
-                <option>女</option>
+                <option value="男" <c:if test="${'男' eq putStudent.sex}">selected</c:if> >男</option>
+                <option value="女" <c:if test="${'女' eq putStudent.sex}">selected</c:if> >女</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">添加</button>
+        <button type="submit" class="btn btn-primary">修改</button>
     </form>
 </div>
 </body>

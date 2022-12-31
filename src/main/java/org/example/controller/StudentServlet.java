@@ -15,14 +15,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Deprecated
+ */
 @WebServlet("/student")
 public class StudentServlet extends HttpServlet {
 
-    StudentService studentService = new StudentService();
+    private StudentService studentService = new StudentService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println('1');
         List<Student> studentList = studentService.queryList();
         HttpSession session = req.getSession();
         session.setAttribute("students", studentList);

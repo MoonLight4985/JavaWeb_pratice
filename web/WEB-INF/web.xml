@@ -41,10 +41,16 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
+        <!--This url-pattern has been deprecated-->
         <url-pattern>/student</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
+        <!--This url-pattern has been deprecated-->
         <url-pattern>/putStu</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/stud</url-pattern>
     </filter-mapping>
 </web-app>

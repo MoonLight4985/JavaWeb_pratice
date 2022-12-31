@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
+/**
+ * Deprecated
+ */
 @WebServlet("/putStu")
 public class putStuServlet extends HttpServlet {
     StudentService studentService = new StudentService();

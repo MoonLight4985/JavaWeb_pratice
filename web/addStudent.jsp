@@ -19,7 +19,7 @@
 
 <div style="width: 500px; height: 800px; margin: auto;">
     <h3>添加学生用户</h3>
-    <form action="${pageContext.request.contextPath}/student" method="post">
+    <form action="${pageContext.request.contextPath}/stud?method=add" method="post">
         <div class="form-group">
             <label for="InputUsername">学生姓名</label>
             <input type="text" class="form-control" id="InputUsername" name="name">

@@ -27,7 +27,7 @@
     <hr class="my-4">
     <p>This page is the menu page of the course practice items, please select the function you want to test^-^</p>
     <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Game.jsp" role="button">1. 猜数字小游戏</a>
-    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/student" role="button">2. 查询学生用户</a>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/stud" role="button">2. 查询学生用户</a>
     <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/logout" role="button">退出登录</a>
 </div>
 </body>
